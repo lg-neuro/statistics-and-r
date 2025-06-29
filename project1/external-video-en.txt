@@ -1,0 +1,39 @@
+
+RAFAEL IRIZARRY: When data is not normally distributed, than the mean
+and the standard deviation aren't necessarily good summaries.
+An example of data that is not normally distributed are salaries.
+So in our usingR library, we have a data set with the salaries of executives.
+We can make that histogram just to get an idea
+of what that distribution looks like.
+And we can see it looks nothing like normal.
+There's a lot of executives getting paid between 0 and 250.
+And then there are some that are getting paid a lot more than that.
+So if we make a qqnorm, we'll see immediately
+that it does not follow a normal distribution, not even close.
+We have what statisticians call a fat right tail--
+there's points that are much, much larger
+than expected, if the data were normally distributed.
+So if we were going to describe this data set to someone,
+we would not tell them the mean and the standard deviation,
+because it would not really give you a good idea
+of the distribution of the data.
+So more generally, the boxplot which is a plot that
+shows you five numbers and also outliers, which
+we won't describe today, is a much better summary.
+The boxplot, it's a very simple idea.
+It shows you the median-- that's going to be this line here.
+You see that the median is around 50, which is quite different from the mean.
+Let's look at what they mean is.
+
+And the median is about half of what the mean is.
+So then we have the 25th percentile in here, and the 75th percentile.
+So this box here is showing us where 50% of the data
+is, where the middle half of the data is included in this range here.
+Then, we have the range of the data.
+However, the box plot implementation in R
+has a way of defining what are called outliers.
+And the help file describes it pretty in some detail.
+You can look at that.
+And you can see that there's some outliers here.
+But in general, the boxplot is a very nice graphical way
+of displaying some summaries about the data, basically these five numbers.
