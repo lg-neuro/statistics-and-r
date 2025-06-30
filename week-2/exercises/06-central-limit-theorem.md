@@ -25,7 +25,7 @@ pnorm(1)-pnorm(-1)
 
 ### Central Limit Theorem Exercises #2
 
-What proportion of these numbers are within two standard deviations away from the list's average? **Answer: 0.9544997**
+What proportion of these numbers are within two standard deviations away from the list's average? **Answer: $0.9544997$**
 
 ```R
 pnorm(2)-pnorm(-2)
@@ -33,7 +33,7 @@ pnorm(2)-pnorm(-2)
 
 ### Central Limit Theorem Exercises #3
 
-What proportion of these numbers are within three standard deviations away from the list's average? **Answer: 0.9973002**
+What proportion of these numbers are within three standard deviations away from the list's average? **Answer: $0.9973002$**
 
 ```R
 pnorm(3)-pnorm(-3)
@@ -61,7 +61,7 @@ mean( abs(z) <=1 )
 
 ### Central Limit Theorem Exercises #5
 
-What proportion of these numbers are within three standard deviations away from the list's average? **Answer: 0.9461883**
+What proportion of these numbers are within three standard deviations away from the list's average? **Answer: $0.9461883$**
 
 ```R
 mean( abs(z) <=2)
@@ -69,7 +69,7 @@ mean( abs(z) <=2)
 
 ### Central Limit Theorem Exercises #6
 
-What proportion of these numbers are within three standard deviations away from the list's average? **Answer: 0.9461883**
+What proportion of these numbers are within three standard deviations away from the list's average? **Answer: $0.9910314$**
 
 ```R
 mean( abs(z) <=3)
@@ -89,4 +89,35 @@ Which of the following best describes the qq-plot comparing mouse weights to the
 
 ### Central Limit Theorem Exercises #8
 
+Here we are going to use the function `replicate()` to learn about the distribution of random variables. All the above exercises relate to the normal distribution as an approximation of the distribution of a fixed list of numbers or a population. We have not yet discussed probability in these exercises. If the distribution of a list of numbers is approximately normal, then if we pick a number at random from this distribution, it will follow a normal distribution. However, it is important to remember that stating that some quantity has a distribution does not necessarily imply this quantity is random. Also, keep in mind that this is not related to the central limit theorem. The central limit applies to averages of random variables. Let's explore this concept.
+
+We will now take a sample of size $25$ from the population of males on the chow diet. The average of this sample is our random variable. We will use the `replicate()` function to observe $10,000$ realizations of this random variable. Set the seed at $1$, then generate these $10,000$ averages. Make a histogram and qq-plot of these $10,000$ numbers against the normal distribution.
+
+We can see that, as predicted by the CLT, the distribution of the random variable is very well approximated by the normal distribution.
+
+```R
+y <- filter(dat, Sex=="M" & Diet=="chow") %>% select(Bodyweight) %>% unlist
+set.seed(1)
+avgs <- replicate(10000, mean( sample(y, 25)))
+mypar(1,2)
+hist(avgs)
+qqnorm(avgs)
+qqline(avgs)
+```
+
+![histogram and qqplot weights averages](../classes/images/hist-and-qqplot-weights-avg.png)
+
+What is the average of the distribution of the sample average? **Answer: $30.96856$**
+
+```R
+mean(avgs)
+```
+
+### Central Limit Theorem Exercises #9
+
+What is the standard deviation of the distribution of sample averages (use `popsd()`)? **Answer: $0.827082$**
+
+```R
+popsd(avgs)
+```
 
