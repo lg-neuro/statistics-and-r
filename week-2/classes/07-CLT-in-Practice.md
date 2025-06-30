@@ -47,25 +47,21 @@ Script file from this lesson.
 ## script.
 
 library(downloader)
-url <- "https://raw.githubusercontent.com/genomicsclass/dagdata/master/inst/extdata/mice_pheno.csv"
+url <- "https://raw.githubusercontent.com/genomicsclass/dagdata/refs/heads/master/inst/extdata/femaleControlsPopulation.csv"
 filename <- basename(url)
 download(url, destfile=filename)
-dat <- na.omit( read.csv(filename) )
-
-population <- filter(dat, Sex == "F") %>%
-  select(Bodyweight) %>% 
-  unlist
+population <- na.omit( read.csv(filename) )
+population <- unlist(population)
 
 library(dplyr)
-set.seed(1)
 n <- 10000
 nulls <- vector("numeric", n)
 for(i in 1:n){
-  control <- sample( population, 12)
-  treatment <- sample( population, 12)
+  control <- sample( population, 12) ## Or 3
+  treatment <- sample( population, 12) ## Or 3
   nulls[i] <- mean(treatment)-mean(control)
 }
-## mean( abs( nulls ) > obs)
+
 library(rafalib)
 mypar()
 
