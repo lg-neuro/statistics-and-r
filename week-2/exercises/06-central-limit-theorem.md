@@ -83,5 +83,10 @@ qqnorm(z)
 abline(0,1)
 ```
 
-Which of the following best describes the qq-plot comparing mouse weights to the normal distribution?
+![qqplot mouse weights vs norm distr](../classes/images/qqplot-mouse-weights-vs-normal-distribution.png)
+
+Which of the following best describes the qq-plot comparing mouse weights to the normal distribution? **Answer: The mouse weights are well approximated by the normal distribution, although the larger values (right tail) are larger than predicted by the normal. This is consistent with the differences seen between question 3 and 6.**
+
+### Central Limit Theorem Exercises #8
+
 
