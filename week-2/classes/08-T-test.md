@@ -1,6 +1,6 @@
 ---
 layout: page
-title: CLT in Practice
+title: T-test
 author: "Leonardo Genero - HarvardX PH525.1x: Statistics and R"
 ---
 
