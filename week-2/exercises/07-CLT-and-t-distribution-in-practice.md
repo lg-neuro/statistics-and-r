@@ -245,9 +245,25 @@ Z <- ( mean(Y) - mean(X) ) / sqrt( var(X)/12 + var(Y)/12)
 CLT provides an approximation for cases in which the sample size is large. In practice, we can't check the assumption because we only get to see 1 outcome (which you computed above). As a result, if this approximation is off, so is our p-value. As described earlier, there is another approach that does not require a large sample size, but rather that the distribution of the population is approximately normal. We don't get to see this distribution so it is again an assumption, although we can look at the distribution of the sample with `qqnorm(X)` and `qqnorm(Y)`. If we are willing to assume this, then it follows that the t-statistic follows the t-distribution.
 
 What is the p-value under the t-distribution approximation?
-Hint: use the t.test() function.
+Hint: use the `t.test()` function.
 
+**Answer: 0.0398622**
 
+```R
+t.test(X,Y)$p.value
+```
+
+### CLT and t-distribution in Practice Exercises #13
+
+With the CLT distribution, we obtained a p-value smaller than 0.05 and with the t-distribution, one that is larger. They can't both be right. What best describes the difference?
+
+* A sample size of 12 is not large enough, so we have to use the t-distribution approximation.
+* These are two different assumptions. The t-distribution accounts for the variability introduced by the estimation of the standard error and thus, under the null, large values are more probable under the null distribution.
+* The population data is probably not normally distributed so the t-distribution approximation is wrong.
+* Neither assumption is useful. Both are wrong.
+unanswered
+
+**Answer:  These are two different assumptions. The t-distribution accounts for the variability introduced by the estimation of the standard error and thus, under the null, large values are more probable under the null distribution.**
 
 ```bash
 git add .
